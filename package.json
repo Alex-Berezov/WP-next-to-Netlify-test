@@ -1,11 +1,9 @@
 {
   "name": "next-wordpress-starter",
-  "homepage": "https://next-wordpress-starter.spacejelly.dev",
   "version": "0.1.0",
   "license": "MIT",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
   "scripts": {
-    "build": "next build && next export",
+    "build": "next build",
     "dev": "next dev",
     "export": "next export",
     "format": "yarn lint --fix",
@@ -49,12 +47,5 @@
     "lint-staged": ">=13.0.4",
     "playwright": "^1.26.0",
     "prettier": "2.7.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/colbyfayock/next-wordpress-starter"
-  },
-  "bugs": {
-    "url": "https://github.com/colbyfayock/next-wordpress-starter/issues"
   }
 }
