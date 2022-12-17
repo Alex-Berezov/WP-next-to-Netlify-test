@@ -2,7 +2,7 @@
 
 .nav {
   width: 100%;
-  border-bottom: 1px solid $color-gray-100;
+  // border-bottom: 1px solid $color-gray-100;
   padding: 0 1rem;
 }
 
@@ -36,20 +36,8 @@
   }
 
   a {
-    color: $color-gray-500;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-decoration: none;
-    border-bottom: solid 2px transparent;
-
-    @media (min-width: 480px) {
-      padding: 0.5em;
-      margin-left: -0.5em;
-    }
-
-    &:hover {
-      color: $color-primary;
-    }
+    width: 183px;
+    height: 32px;
   }
 }
 
@@ -85,19 +73,19 @@
 
     &[disabled] {
       svg {
-        fill: $color-gray-200;
+        fill: $color-black;
         transition: fill 0.5s;
       }
     }
 
     svg {
-      fill: $color-gray-400;
+      fill: $color-black;
       transform: translateY(2px);
     }
 
     &:focus {
       svg {
-        fill: $color-primary;
+        fill: $color-black;
       }
     }
   }

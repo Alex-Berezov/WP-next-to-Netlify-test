@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Cousine';
+    src: url('Cousine-Bold.eot');
+    src: url('Cousine-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Cousine-Bold.woff2') format('woff2'),
+        url('Cousine-Bold.woff') format('woff'),
+        url('Cousine-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Zen Dots';
+    src: url('ZenDots-Regular.eot');
+    src: url('ZenDots-Regular.eot?#iefix') format('embedded-opentype'),
+        url('ZenDots-Regular.woff2') format('woff2'),
+        url('ZenDots-Regular.woff') format('woff'),
+        url('ZenDots-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cousine';
+    src: url('Cousine-Regular.eot');
+    src: url('Cousine-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Cousine-Regular.woff2') format('woff2'),
+        url('Cousine-Regular.woff') format('woff'),
+        url('Cousine-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

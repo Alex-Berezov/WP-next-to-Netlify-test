@@ -58,3 +58,28 @@ export const QUERY_SEO_DATA = gql`
     }
   }
 `;
+
+export const QUERY_SITE_LOGO = gql`
+  query getLogo {
+    mediaItems(where: { name: "logo" }) {
+      nodes {
+        mediaItemUrl
+        mediaDetails {
+          height
+          width
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_HOME_PAGE_INFO = gql`
+  query getHomePageInfo {
+    pages(where: { id: 18 }) {
+      nodes {
+        title
+        content
+      }
+    }
+  }
+`;

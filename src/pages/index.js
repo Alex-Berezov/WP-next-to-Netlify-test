@@ -10,25 +10,39 @@ import PostCard from 'components/PostCard';
 import Pagination from 'components/Pagination';
 
 import styles from 'styles/pages/Home.module.scss';
+import { useState, useEffect } from 'react';
+import { getHomePageInfo } from 'lib/site';
 
 export default function Home({ posts, pagination }) {
   const { metadata = {} } = useSite();
-  const { title, description } = metadata;
+  const { title } = metadata;
+
+  const [homePageData, setHomePageData] = useState({});
+
+  async function fetchHomePagedata() {
+    const response = await getHomePageInfo();
+    setHomePageData(response);
+  }
+
+  useEffect(() => {
+    fetchHomePagedata();
+  }, []);
 
   return (
     <Layout>
       <WebsiteJsonLd siteTitle={title} />
       <Header>
         <h1
+          className={styles.title}
           dangerouslySetInnerHTML={{
-            __html: title,
+            __html: homePageData.title,
           }}
         />
 
         <p
           className={styles.description}
           dangerouslySetInnerHTML={{
-            __html: description,
+            __html: homePageData.content,
           }}
         />
       </Header>
@@ -61,8 +75,9 @@ export default function Home({ posts, pagination }) {
 
 export async function getStaticProps() {
   const { posts, pagination } = await getPaginatedPosts({
-    queryIncludes: 'archive',
+    queryIncludes: 'all',
   });
+
   return {
     props: {
       posts,

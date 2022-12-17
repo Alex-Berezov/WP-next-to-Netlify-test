@@ -2,7 +2,7 @@ import { getApolloClient } from 'lib/apollo-client';
 
 import { decodeHtmlEntities, removeExtraSpaces } from 'lib/util';
 
-import { QUERY_SITE_DATA, QUERY_SEO_DATA } from 'data/site';
+import { QUERY_SITE_DATA, QUERY_SEO_DATA, QUERY_SITE_LOGO, QUERY_HOME_PAGE_INFO } from 'data/site';
 
 /**
  * getSiteMetadata
@@ -285,4 +285,44 @@ export function helmetSettingsFromMetadata(metadata = {}, options = {}) {
   ].filter(({ content } = {}) => !!content);
 
   return settings;
+}
+
+/**
+ * getSiteLogo
+ */
+
+export async function getSiteLogo() {
+  const apolloClient = getApolloClient();
+  let siteLogoUrl;
+
+  try {
+    siteLogoUrl = await apolloClient.query({
+      query: QUERY_SITE_LOGO,
+    });
+  } catch (e) {
+    console.log(`[site][getSiteMetadata] Failed to query site logo: ${e.message}`);
+    throw e;
+  }
+
+  return siteLogoUrl.data.mediaItems.nodes[0].mediaItemUrl;
+}
+
+/**
+ * getHomePageInfo
+ */
+
+export async function getHomePageInfo() {
+  const apolloClient = getApolloClient();
+  let homePageData = {};
+
+  try {
+    homePageData = await apolloClient.query({
+      query: QUERY_HOME_PAGE_INFO,
+    });
+  } catch (e) {
+    console.log(`[site][getSiteMetadata] Failed to query home page data: ${e.message}`);
+    throw e;
+  }
+
+  return homePageData.data.pages.nodes[0];
 }

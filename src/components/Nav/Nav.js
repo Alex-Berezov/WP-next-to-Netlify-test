@@ -11,6 +11,7 @@ import Section from 'components/Section';
 
 import styles from './Nav.module.scss';
 import NavListItem from 'components/NavListItem';
+import { getSiteLogo } from 'lib/site';
 
 const SEARCH_VISIBLE = 'visible';
 const SEARCH_HIDDEN = 'hidden';
@@ -18,10 +19,19 @@ const SEARCH_HIDDEN = 'hidden';
 const Nav = () => {
   const formRef = useRef();
 
+  const [siteLogoUrl, setSiteLogoUrl] = useState('');
+
+  useEffect(() => {
+    async function fetchLogo() {
+      const response = await getSiteLogo();
+      setSiteLogoUrl(response);
+    }
+    fetchLogo();
+  }, []);
+
   const [searchVisibility, setSearchVisibility] = useState(SEARCH_HIDDEN);
 
-  const { metadata = {}, menus } = useSite();
-  const { title } = metadata;
+  const { menus } = useSite();
 
   const navigationLocation = process.env.WORDPRESS_MENU_LOCATION_NAVIGATION || MENU_LOCATION_NAVIGATION_DEFAULT;
   const navigation = findMenuByLocation(menus, navigationLocation);
@@ -179,7 +189,9 @@ const Nav = () => {
       <Section className={styles.navSection}>
         <p className={styles.navName}>
           <Link href="/">
-            <a>{title}</a>
+            <a>
+              <img src={siteLogoUrl} alt="ProgSolver logo" />
+            </a>
           </Link>
         </p>
         <ul className={styles.navMenu}>

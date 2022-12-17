@@ -1,5 +1,6 @@
 {
   "name": "next-wordpress-starter",
+  "homepage": "http://localhost:3000",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
