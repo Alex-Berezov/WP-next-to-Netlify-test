@@ -1,9 +1,7 @@
-import Link from 'next/link';
 import { Helmet } from 'react-helmet';
 
-import { getPostBySlug, getRecentPosts, getRelatedPosts, postPathBySlug } from 'lib/posts';
+import { getPostBySlug, getRecentPosts, getRelatedPosts } from 'lib/posts';
 import { categoryPathBySlug } from 'lib/categories';
-import { formatDate } from 'lib/datetime';
 import { ArticleJsonLd } from 'lib/json-ld';
 import { helmetSettingsFromMetadata } from 'lib/site';
 import useSite from 'hooks/use-site';
@@ -14,24 +12,16 @@ import Header from 'components/Header';
 import Section from 'components/Section';
 import Container from 'components/Container';
 import Content from 'components/Content';
-import Metadata from 'components/Metadata';
 import FeaturedImage from 'components/FeaturedImage';
 
 import styles from 'styles/pages/Post.module.scss';
 
-export default function Post({ post, socialImage, related }) {
-  const {
-    title,
-    metaTitle,
-    description,
-    content,
-    date,
-    author,
-    categories,
-    modified,
-    featuredImage,
-    isSticky = false,
-  } = post;
+export default function Post({ post, socialImage }) {
+  const { title, metaTitle, description, content, featuredImage, linkToImageResource, solutions } = post;
+
+  console.log('====================================');
+  console.log('solutions >>', solutions);
+  console.log('====================================');
 
   const { metadata: siteMetadata = {}, homepage } = useSite();
 
@@ -58,12 +48,6 @@ export default function Post({ post, socialImage, related }) {
     metadata.twitter.title = metadata.title;
   }
 
-  const metadataOptions = {
-    compactCategories: false,
-  };
-
-  const { posts: relatedPostsList, title: relatedPostsTitle } = related || {};
-
   const helmetSettings = helmetSettingsFromMetadata(metadata);
 
   return (
@@ -73,26 +57,30 @@ export default function Post({ post, socialImage, related }) {
       <ArticleJsonLd post={post} siteTitle={siteMetadata.title} />
 
       <Header>
-        {featuredImage && (
-          <FeaturedImage
-            {...featuredImage}
-            src={featuredImage.sourceUrl}
-            dangerouslySetInnerHTML={featuredImage.caption}
-          />
-        )}
+        <div className={styles.imageWrapper}>
+          {featuredImage && (
+            <FeaturedImage
+              {...featuredImage}
+              src={featuredImage.sourceUrl}
+              dangerouslySetInnerHTML={featuredImage.caption}
+            />
+          )}
+          <p>
+            Photo from{' '}
+            <a
+              href={linkToImageResource?.linkToImageResource || 'https://unsplash.com/'}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Unsplash
+            </a>
+          </p>
+        </div>
         <h1
           className={styles.title}
           dangerouslySetInnerHTML={{
             __html: title,
           }}
-        />
-        <Metadata
-          className={styles.postMetadata}
-          date={date}
-          author={author}
-          categories={categories}
-          options={metadataOptions}
-          isSticky={isSticky}
         />
       </Header>
 
@@ -108,35 +96,6 @@ export default function Post({ post, socialImage, related }) {
           </Container>
         </Section>
       </Content>
-
-      <Section className={styles.postFooter}>
-        <Container>
-          <p className={styles.postModified}>Last updated on {formatDate(modified)}.</p>
-          {Array.isArray(relatedPostsList) && relatedPostsList.length > 0 && (
-            <div className={styles.relatedPosts}>
-              {relatedPostsTitle.name ? (
-                <span>
-                  More from{' '}
-                  <Link href={relatedPostsTitle.link}>
-                    <a>{relatedPostsTitle.name}</a>
-                  </Link>
-                </span>
-              ) : (
-                <span>More Posts</span>
-              )}
-              <ul>
-                {relatedPostsList.map((post) => (
-                  <li key={post.title}>
-                    <Link href={postPathBySlug(post.slug)}>
-                      <a>{post.title}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </Container>
-      </Section>
     </Layout>
   );
 }

@@ -1,5 +1,20 @@
 @import "styles/settings/__settings";
 
+.imageWrapper {
+  margin: 0 auto 50px auto;
+  max-width: 40rem;
+
+    figure {
+      margin-bottom: 0;
+    }
+    
+    p {
+      font-size: 14px;
+      margin-top: 5px;
+      text-align: center;
+    }
+  }
+
 .postMetadata {
   text-align: center;
   justify-content: center;
