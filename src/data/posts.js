@@ -157,6 +157,12 @@ export const QUERY_POST_BY_SLUG = gql`
           cSolution1
           cSolution2
           cSolution3
+          cSharpSolution1
+          cSharpSolution2
+          cSharpSolution3
+          cPlusPlusSolution1
+          cPlusPlusSolution2
+          cPlusPlusSolution3
           clojureSolution1
           clojureSolution2
           clojureSolution3
@@ -194,9 +200,6 @@ export const QUERY_POST_BY_SLUG = gql`
           haskellSolution1
           haskellSolution2
           haskellSolution3
-          haxeSolution1
-          haxeSolution2
-          haxeSolution3
           javaSolution1
           javaSolution2
           javaSolution3

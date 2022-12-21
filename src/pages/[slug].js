@@ -15,13 +15,10 @@ import Content from 'components/Content';
 import FeaturedImage from 'components/FeaturedImage';
 
 import styles from 'styles/pages/Post.module.scss';
+import SolutionsTabs from '../components/SolutionsTabs/SolutionsTabs';
 
 export default function Post({ post, socialImage }) {
   const { title, metaTitle, description, content, featuredImage, linkToImageResource, solutions } = post;
-
-  console.log('====================================');
-  console.log('solutions >>', solutions);
-  console.log('====================================');
 
   const { metadata: siteMetadata = {}, homepage } = useSite();
 
@@ -95,6 +92,12 @@ export default function Post({ post, socialImage }) {
             />
           </Container>
         </Section>
+
+        <Content>
+          <Container>
+            <SolutionsTabs solutions={solutions?.solutionsTabs} />
+          </Container>
+        </Content>
       </Content>
     </Layout>
   );

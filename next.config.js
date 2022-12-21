@@ -3,6 +3,25 @@ const feed = require('./plugins/feed');
 const sitemap = require('./plugins/sitemap');
 // const socialImages = require('./plugins/socialImages'); TODO: failing to run on Netlify
 
+/**
+ * 301 redirects
+ */
+
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/filling-an-array-(part-1)',
+        destination: '/filling-an-array-part-1',
+        permanent: true,
+      },
+    ];
+  },
+  experimental: {
+    allowMiddlewareResponseBody: true,
+  },
+};
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
