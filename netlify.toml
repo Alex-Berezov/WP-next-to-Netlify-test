@@ -4,3 +4,16 @@
   
 [[plugins]]
 package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/convert-boolean-values-to-strings-'yes'-or-'no'."
+  to = "/convert-boolean-values-to-strings-yes-or-no"
+  status = 308
+
+[[redirects]]
+  from = "/if-you-can't-sleep,-just-count-sheep"
+  to = "/if-you-cant-sleep-just-count-sheep"
+  status = 308
+
+  //Stop at: 61
+  //Beginner - Lost Without a Map
