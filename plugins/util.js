@@ -191,7 +191,7 @@ async function getPages(apolloClient, process, verbose = false) {
   let pages = [];
 
   try {
-    const data = await apolloClient.query({ query });
+    const data = (await apolloClient.query({ query })) || [];
     pages = [
       ...data.data.pages.edges.map(({ node = {} }) => {
         return {
