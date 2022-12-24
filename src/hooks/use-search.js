@@ -24,7 +24,7 @@ export function useSearchState() {
   let client;
 
   if (data) {
-    client = new Fuse(data.posts, {
+    client = new Fuse(data?.posts, {
       keys: SEARCH_KEYS,
       isCaseSensitive: false,
     });
