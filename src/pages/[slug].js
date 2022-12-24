@@ -146,7 +146,7 @@ export async function getStaticPaths() {
   // most popular posts and render those instead
 
   const { posts } = await getRecentPosts({
-    count: process.env.POSTS_PRERENDER_COUNT, // Update this value in next.config.js!
+    count: process.env.POSTS_PRERENDER_COUNT || 5, // Update this value in next.config.js!
     queryIncludes: 'index',
   });
 

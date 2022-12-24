@@ -32,7 +32,7 @@ export function postPathBySlug(slug) {
 
 export async function getPostBySlug(slug) {
   const apolloClient = getApolloClient();
-  const apiHost = new URL(process.env.WORDPRESS_GRAPHQL_ENDPOINT || 'https://aleber-test.online/graphql').host;
+  const apiHost = new URL(process.env.WORDPRESS_GRAPHQL_ENDPOINT).host;
 
   let postData;
   let seoData;

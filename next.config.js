@@ -55,6 +55,11 @@ module.exports = {
         destination: '/to-squareroot-or-not-to-squareroot',
         permanent: true,
       },
+      {
+        source: '/training-js-12:-loop-statement-for-in-and-for-of',
+        destination: '/training-js-12-loop-statement-for-in-and-for-of',
+        permanent: true,
+      },
     ];
   },
   experimental: {
