@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "next build",
+    "build": "next build && next export",
     "dev": "next dev",
     "export": "next export",
     "format": "yarn lint --fix",
@@ -51,9 +51,5 @@
     "lint-staged": ">=13.0.4",
     "playwright": "^1.26.0",
     "prettier": "2.7.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Alex-Berezov/WP-next-to-Netlify-test"
   }
 }
