@@ -108,18 +108,18 @@ async function getAllPosts(apolloClient, process, verbose = false) {
     posts = nodes.map((post) => {
       const data = { ...post };
 
-      if (data.author) {
-        data.author = data.author.node.name;
+      if (data?.author) {
+        data.author = data?.author?.node?.name;
       }
 
-      if (data.categories) {
-        data.categories = data.categories.edges.map(({ node }) => node.name);
+      if (data?.categories) {
+        data.categories = data?.categories?.edges?.map(({ node }) => node.name);
       }
 
-      if (data.excerpt) {
+      if (data?.excerpt) {
         //Sanitize the excerpt by removing all HTML tags
         const regExHtmlTags = /(<([^>]+)>)/g;
-        data.excerpt = data.excerpt.replace(regExHtmlTags, '');
+        data.excerpt = data?.excerpt?.replace(regExHtmlTags, '');
       }
 
       return data;
@@ -314,9 +314,9 @@ function generateSitemap({ posts = [], pages = [] }, nextConfig = {}) {
         ${pages
           .map((page) => {
             return `<url>
-                      <loc>${homepage}/${page.slug}${trailingSlash ? '/' : ''}</loc>
+                      <loc>${homepage}/${page?.slug}${trailingSlash ? '/' : ''}</loc>
                       <priority>0.3</priority>
-                      <lastmod>${new Date(page.modified).toISOString()}</lastmod>
+                      <lastmod>${new Date(page?.modified).toISOString()}</lastmod>
                     </url>
                 `;
           })
@@ -324,8 +324,8 @@ function generateSitemap({ posts = [], pages = [] }, nextConfig = {}) {
           ${posts
             .map((post) => {
               return `<url>
-                        <loc>${homepage}/${post.slug}${trailingSlash ? '/' : ''}</loc>
-                        <lastmod>${new Date(post.modified).toISOString()}</lastmod>
+                        <loc>${homepage}/${post?.slug}${trailingSlash ? '/' : ''}</loc>
+                        <lastmod>${new Date(post?.modified).toISOString()}</lastmod>
                       </url>
                   `;
             })
