@@ -125,12 +125,12 @@ async function getAllPosts(apolloClient, process, verbose = false) {
       return data;
     });
 
-    verbose && console.log(`[${process}] Successfully fetched posts from ${apolloClient.link.options.uri}`);
+    verbose && console.log(`[${process}] Successfully fetched posts from ${apolloClient?.link?.options?.uri}`);
     return {
       posts,
     };
   } catch (e) {
-    throw new Error(`[${process}] Failed to fetch posts from ${apolloClient.link.options.uri}: ${e.message}`);
+    throw new Error(`[${process}] Failed to fetch posts from ${apolloClient?.link?.options?.uri}: ${e.message}`);
   }
 }
 
@@ -161,12 +161,12 @@ async function getSiteMetadata(apolloClient, process, verbose = false) {
       metadata.language = metadata.language.split('_')[0];
     }
 
-    verbose && console.log(`[${process}] Successfully fetched metadata from ${apolloClient.link.options.uri}`);
+    verbose && console.log(`[${process}] Successfully fetched metadata from ${apolloClient?.link?.options?.uri}`);
     return {
       metadata,
     };
   } catch (e) {
-    throw new Error(`[${process}] Failed to fetch metadata from ${apolloClient.link.options.uri}: ${e.message}`);
+    throw new Error(`[${process}] Failed to fetch metadata from ${apolloClient?.link?.options?.uri}: ${e.message}`);
   }
 }
 
@@ -201,12 +201,12 @@ async function getPages(apolloClient, process, verbose = false) {
       }),
     ];
 
-    verbose && console.log(`[${process}] Successfully fetched page slugs from ${apolloClient.link.options.uri}`);
+    verbose && console.log(`[${process}] Successfully fetched page slugs from ${apolloClient?.link?.options?.uri}`);
     return {
       pages,
     };
   } catch (e) {
-    throw new Error(`[${process}] Failed to fetch page slugs from ${apolloClient.link.options.uri}: ${e.message}`);
+    throw new Error(`[${process}] Failed to fetch page slugs from ${apolloClient?.link?.options?.uri}: ${e.message}`);
   }
 }
 
