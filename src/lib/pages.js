@@ -22,7 +22,7 @@ export function pagePathBySlug(slug) {
 
 export async function getPageByUri(uri) {
   const apolloClient = getApolloClient();
-  const apiHost = new URL(process.env.WORDPRESS_GRAPHQL_ENDPOINT).host;
+  const apiHost = new URL(process.env.WORDPRESS_GRAPHQL_ENDPOINT || 'https://aleber-test.online/graphql').host;
 
   let pageData;
   let seoData;

@@ -7,60 +7,60 @@ const sitemap = require('./plugins/sitemap');
  * 301 redirects
  */
 
-// module.exports = {
-//   async redirects() {
-//     return [
-//       {
-//         source: '/filling-an-array-(part-1)',
-//         destination: '/filling-an-array-part-1',
-//         permanent: true,
-//       },
-//       {
-//         source: '/is-it-even?',
-//         destination: '/is-it-even',
-//         permanent: true,
-//       },
-//       {
-//         source: '/thinkful-logic-drills:-traffic-light',
-//         destination: '/thinkful-logic-drills-traffic-light',
-//         permanent: true,
-//       },
-//       {
-//         source: '/training-js-8:-conditional-statement-switch',
-//         destination: '/training-js-8-conditional-statement-switch',
-//         permanent: true,
-//       },
-//       {
-//         source: '/training-js-2:-basic-data-types-number',
-//         destination: '/training-js-2-basic-data-types-number',
-//         permanent: true,
-//       },
-//       {
-//         source: '/is-the-string-uppercase?',
-//         destination: '/is-the-string-uppercase',
-//         permanent: true,
-//       },
-//       {
-//         source: '/the-wide-mouthed-frog!',
-//         destination: '/the-wide-mouthed-frog',
-//         permanent: true,
-//       },
-//       {
-//         source: '/is-n-divisible-by-x-and-y?',
-//         destination: '/is-n-divisible-by-x-and-y',
-//         permanent: true,
-//       },
-//       {
-//         source: '/to-square(root)-or-not-to-square(root)',
-//         destination: '/to-squareroot-or-not-to-squareroot',
-//         permanent: true,
-//       },
-//     ];
-//   },
-//   experimental: {
-//     allowMiddlewareResponseBody: true,
-//   },
-// };
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/filling-an-array-(part-1)',
+        destination: '/filling-an-array-part-1',
+        permanent: true,
+      },
+      {
+        source: '/is-it-even?',
+        destination: '/is-it-even',
+        permanent: true,
+      },
+      {
+        source: '/thinkful-logic-drills:-traffic-light',
+        destination: '/thinkful-logic-drills-traffic-light',
+        permanent: true,
+      },
+      {
+        source: '/training-js-8:-conditional-statement-switch',
+        destination: '/training-js-8-conditional-statement-switch',
+        permanent: true,
+      },
+      {
+        source: '/training-js-2:-basic-data-types-number',
+        destination: '/training-js-2-basic-data-types-number',
+        permanent: true,
+      },
+      {
+        source: '/is-the-string-uppercase?',
+        destination: '/is-the-string-uppercase',
+        permanent: true,
+      },
+      {
+        source: '/the-wide-mouthed-frog!',
+        destination: '/the-wide-mouthed-frog',
+        permanent: true,
+      },
+      {
+        source: '/is-n-divisible-by-x-and-y?',
+        destination: '/is-n-divisible-by-x-and-y',
+        permanent: true,
+      },
+      {
+        source: '/to-square(root)-or-not-to-square(root)',
+        destination: '/to-squareroot-or-not-to-squareroot',
+        permanent: true,
+      },
+    ];
+  },
+  experimental: {
+    allowMiddlewareResponseBody: true,
+  },
+};
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
