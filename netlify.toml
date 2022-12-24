@@ -14,6 +14,3 @@ package = "@netlify/plugin-nextjs"
   from = "/if-you-can't-sleep,-just-count-sheep"
   to = "/if-you-cant-sleep-just-count-sheep"
   status = 308
-
-  //Stop at: 61
-  //Beginner - Lost Without a Map
