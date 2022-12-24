@@ -24,7 +24,7 @@ module.exports = function feed(nextConfig = {}) {
 
       config.plugins.push(
         new WebpackPluginCompiler({
-          url: WORDPRESS_GRAPHQL_ENDPOINT,
+          url: WORDPRESS_GRAPHQL_ENDPOINT || 'https://aleber-test.online/graphql',
           plugin,
           verbose,
         })
