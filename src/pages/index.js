@@ -7,13 +7,13 @@ import Header from 'components/Header';
 import Section from 'components/Section';
 import Container from 'components/Container';
 import PostCard from 'components/PostCard';
-import Pagination from 'components/Pagination';
 
 import styles from 'styles/pages/Home.module.scss';
 import { useState, useEffect } from 'react';
 import { getHomePageInfo } from 'lib/site';
+import ViewAllTasks from '../components/WatchAllTasks/ViewAllTasks';
 
-export default function Home({ posts, pagination }) {
+export default function Home({ posts }) {
   const { metadata = {} } = useSite();
   const { title } = metadata;
 
@@ -59,14 +59,7 @@ export default function Home({ posts, pagination }) {
               );
             })}
           </ul>
-          {pagination && (
-            <Pagination
-              addCanonical={false}
-              currentPage={pagination?.currentPage}
-              pagesCount={pagination?.pagesCount}
-              basePath={pagination?.basePath}
-            />
-          )}
+          <ViewAllTasks />
         </Container>
       </Section>
     </Layout>
@@ -74,17 +67,13 @@ export default function Home({ posts, pagination }) {
 }
 
 export async function getStaticProps() {
-  const { posts, pagination } = await getPaginatedPosts({
+  const { posts } = await getPaginatedPosts({
     queryIncludes: 'all',
   });
 
   return {
     props: {
       posts,
-      pagination: {
-        ...pagination,
-        basePath: '/posts',
-      },
     },
   };
 }

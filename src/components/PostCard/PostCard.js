@@ -1,18 +1,13 @@
 import Link from 'next/link';
 
-import { postPathBySlug, sanitizeExcerpt } from 'lib/posts';
-
-import Metadata from 'components/Metadata';
+import { postPathBySlug } from 'lib/posts';
 
 import { FaMapPin } from 'react-icons/fa';
 import styles from './PostCard.module.scss';
 import FeaturedImage from './../FeaturedImage/FeaturedImage';
-import { useRouter } from 'next/router';
 
 const PostCard = ({ post, options = {} }) => {
-  const router = useRouter();
-  const isHome = router.asPath === '/';
-  const { title, excerpt, slug, date, author, categories, isSticky = false, featuredImage } = post;
+  const { title, slug, date, author, categories, isSticky = false, featuredImage } = post;
   const { excludeMetadata = [] } = options;
 
   const metadata = {};
@@ -29,14 +24,10 @@ const PostCard = ({ post, options = {} }) => {
     metadata.categories = categories;
   }
 
-  let postCardStyle = styles.postCard;
+  let postCardStyle = styles.postCardHomePage;
 
   if (isSticky) {
     postCardStyle = `${postCardStyle} ${styles.postCardSticky}`;
-  }
-
-  if (isHome) {
-    postCardStyle = `${styles.postCardHomePage}`;
   }
 
   return (
@@ -44,7 +35,7 @@ const PostCard = ({ post, options = {} }) => {
       {isSticky && <FaMapPin aria-label="Sticky Post" />}
       <Link href={postPathBySlug(slug)}>
         <a>
-          {featuredImage && isHome && (
+          {featuredImage && (
             <FeaturedImage
               className="homePage-task-img"
               {...featuredImage}
@@ -60,23 +51,6 @@ const PostCard = ({ post, options = {} }) => {
           />
         </a>
       </Link>
-      {featuredImage && !isHome && (
-        <FeaturedImage
-          className="homePage-task-img"
-          {...featuredImage}
-          src={featuredImage.sourceUrl}
-          dangerouslySetInnerHTML={featuredImage.caption}
-        />
-      )}
-      {!isHome && <Metadata className={styles.postCardMetadata} {...metadata} />}
-      {excerpt && !isHome && (
-        <div
-          className={styles.postCardContent}
-          dangerouslySetInnerHTML={{
-            __html: sanitizeExcerpt(excerpt),
-          }}
-        />
-      )}
     </div>
   );
 };

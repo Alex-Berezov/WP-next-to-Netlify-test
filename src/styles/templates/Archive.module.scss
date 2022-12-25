@@ -13,9 +13,13 @@
   list-style: none;
   padding-left: 0;
   margin: -1rem 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   & > li {
-    margin: 4em 0;
+    width: 30%;
 
     &:first-child {
       margin-top: 0;

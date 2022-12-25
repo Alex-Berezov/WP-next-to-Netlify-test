@@ -8,7 +8,6 @@ import Layout from 'components/Layout';
 import Header from 'components/Header';
 import Section from 'components/Section';
 import Container from 'components/Container';
-import SectionTitle from 'components/SectionTitle';
 import PostCard from 'components/PostCard';
 import Pagination from 'components/Pagination/Pagination';
 
@@ -18,7 +17,6 @@ const DEFAULT_POST_OPTIONS = {};
 
 export default function TemplateArchive({
   title = 'Archive',
-  Title,
   posts,
   postOptions = DEFAULT_POST_OPTIONS,
   slug,
@@ -43,7 +41,7 @@ export default function TemplateArchive({
 
       <Header>
         <Container>
-          <h1>{Title || title}</h1>
+          <h1>All Tasks</h1>
           {metadata.description && (
             <p
               className={styles.archiveDescription}
@@ -57,7 +55,6 @@ export default function TemplateArchive({
 
       <Section>
         <Container>
-          <SectionTitle>Posts</SectionTitle>
           {Array.isArray(posts) && (
             <>
               <ul className={styles.posts}>
