@@ -20,7 +20,7 @@ import SolutionsTabs from '../components/SolutionsTabs/SolutionsTabs';
 export default function Post({ post, socialImage }) {
   const { title, content, featuredImage, linkToImageResource, solutions, seo } = post;
 
-  const { metadata: siteMetadata = {}, homepage } = useSite();
+  const { homepage } = useSite();
 
   if (!post.og) {
     post.og = {};
@@ -51,7 +51,7 @@ export default function Post({ post, socialImage }) {
     <Layout>
       <Helmet {...helmetSettings} />
 
-      <ArticleJsonLd post={post} siteTitle={siteMetadata.title} />
+      <ArticleJsonLd post={post} siteTitle={seo.title} />
 
       <Header>
         <div className={styles.imageWrapper}>
