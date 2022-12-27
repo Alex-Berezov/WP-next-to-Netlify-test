@@ -40,9 +40,9 @@ export default function Post({ post, socialImage }) {
   });
 
   if (process.env.WORDPRESS_PLUGIN_SEO !== true) {
-    metadata.title = `${title} - ${siteMetadata.title}`;
-    metadata.og.title = metadata.title;
-    metadata.twitter.title = metadata.title;
+    metadata.title = `${seo.title}`;
+    metadata.og.title = seo.title;
+    metadata.twitter.title = seo.title;
   }
 
   const helmetSettings = helmetSettingsFromMetadata(metadata);
