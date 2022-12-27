@@ -156,6 +156,10 @@ export const QUERY_POST_BY_SLUG = gql`
       linkToImageResource {
         linkToImageResource
       }
+      seo {
+        metaDesc
+        title
+      }
       solutions {
         solutionsTabs {
           javascriptSolution1

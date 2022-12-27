@@ -32,4 +32,7 @@ export function middleware(request) {
   if (request.nextUrl.pathname.startsWith('/training-js-12:-loop-statement-for-in-and-for-of')) {
     return NextResponse.rewrite(new URL('/training-js-12-loop-statement-for-in-and-for-of', request.url));
   }
+  if (request.nextUrl.pathname.startsWith('/square(n)-sum')) {
+    return NextResponse.rewrite(new URL('/square-n-sum', request.url));
+  }
 }

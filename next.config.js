@@ -60,6 +60,11 @@ module.exports = {
         destination: '/training-js-12-loop-statement-for-in-and-for-of',
         permanent: true,
       },
+      {
+        source: '/square(n)-sum',
+        destination: '/square-n-sum',
+        permanent: true,
+      },
     ];
   },
   experimental: {

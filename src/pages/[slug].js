@@ -18,7 +18,7 @@ import styles from 'styles/pages/Post.module.scss';
 import SolutionsTabs from '../components/SolutionsTabs/SolutionsTabs';
 
 export default function Post({ post, socialImage }) {
-  const { title, metaTitle, description, content, featuredImage, linkToImageResource, solutions } = post;
+  const { title, content, featuredImage, linkToImageResource, solutions, seo } = post;
 
   const { metadata: siteMetadata = {}, homepage } = useSite();
 
@@ -34,8 +34,8 @@ export default function Post({ post, socialImage }) {
   const { metadata } = usePageMetadata({
     metadata: {
       ...post,
-      title: metaTitle,
-      description: description || post.og?.description || `Read more about ${title}`,
+      title: seo.title,
+      description: seo.metaDesc || post.og?.description || `Read more about ${title}`,
     },
   });
 
