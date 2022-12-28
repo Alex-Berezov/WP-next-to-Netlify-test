@@ -35,4 +35,40 @@ export function middleware(request) {
   if (request.nextUrl.pathname.startsWith('/square(n)-sum')) {
     return NextResponse.rewrite(new URL('/square-n-sum', request.url));
   }
+  if (request.nextUrl.pathname.startsWith('/alan-partridge-ii---apple-turnover')) {
+    return NextResponse.rewrite(new URL('/alan-partridge-ii-apple-turnover', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/regexp-basics---is-it-a-digit')) {
+    return NextResponse.rewrite(new URL('/regexp-basics-is-it-a-digit', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/grasshopper---basic-function-fixer')) {
+    return NextResponse.rewrite(new URL('/grasshopper-basic-function-fixer', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/string-templates---bug-fixing-5')) {
+    return NextResponse.rewrite(new URL('/string-templates-bug-fixing-5', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/enumerable-magic-20---cascading-subsets')) {
+    return NextResponse.rewrite(new URL('/enumerable-magic-20-cascading-subsets', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/grasshopper---debug-sayhello')) {
+    return NextResponse.rewrite(new URL('/grasshopper-debug-sayhello', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/function-2---squaring-an-argument')) {
+    return NextResponse.rewrite(new URL('/function-2-squaring-an-argument', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/101-dalmatians---squash-the-bugs-not-the-dogs')) {
+    return NextResponse.rewrite(new URL('/101-dalmatians-squash-the-bugs-not-the-dogs', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/aspect-ratio-cropping---part-1')) {
+    return NextResponse.rewrite(new URL('/aspect-ratio-cropping-part-1', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/usd--cny')) {
+    return NextResponse.rewrite(new URL('/usd-cny', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/enumerable-magic-25---take-the-first-n-elements')) {
+    return NextResponse.rewrite(new URL('/enumerable-magic-25-take-the-first-n-elements', request.url));
+  }
+  if (request.nextUrl.pathname.startsWith('/for-twins-2.-math-operations')) {
+    return NextResponse.rewrite(new URL('/for-twins-2-math-operations', request.url));
+  }
 }

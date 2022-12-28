@@ -65,6 +65,66 @@ module.exports = {
         destination: '/square-n-sum',
         permanent: true,
       },
+      {
+        source: '/alan-partridge-ii---apple-turnover',
+        destination: '/alan-partridge-ii-apple-turnover',
+        permanent: true,
+      },
+      {
+        source: '/regexp-basics---is-it-a-digit',
+        destination: '/regexp-basics-is-it-a-digit',
+        permanent: true,
+      },
+      {
+        source: '/grasshopper---basic-function-fixer',
+        destination: '/grasshopper-basic-function-fixer',
+        permanent: true,
+      },
+      {
+        source: '/string-templates---bug-fixing-5',
+        destination: '/string-templates-bug-fixing-5',
+        permanent: true,
+      },
+      {
+        source: '/enumerable-magic-20---cascading-subsets',
+        destination: '/enumerable-magic-20-cascading-subsets',
+        permanent: true,
+      },
+      {
+        source: '/grasshopper---debug-sayhello',
+        destination: '/grasshopper-debug-sayhello',
+        permanent: true,
+      },
+      {
+        source: '/function-2---squaring-an-argument',
+        destination: '/function-2-squaring-an-argument',
+        permanent: true,
+      },
+      {
+        source: '/101-dalmatians---squash-the-bugs-not-the-dogs',
+        destination: '/101-dalmatians-squash-the-bugs-not-the-dogs',
+        permanent: true,
+      },
+      {
+        source: '/aspect-ratio-cropping---part-1',
+        destination: '/aspect-ratio-cropping-part-1',
+        permanent: true,
+      },
+      {
+        source: '/usd--cny',
+        destination: '/usd-cny',
+        permanent: true,
+      },
+      {
+        source: '/enumerable-magic-25---take-the-first-n-elements',
+        destination: '/enumerable-magic-25-take-the-first-n-elements',
+        permanent: true,
+      },
+      {
+        source: '/for-twins-2.-math-operations',
+        destination: '/for-twins-2-math-operations',
+        permanent: true,
+      },
     ];
   },
   experimental: {
